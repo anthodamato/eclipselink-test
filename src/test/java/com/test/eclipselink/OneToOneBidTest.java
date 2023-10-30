@@ -13,49 +13,50 @@ import com.test.eclipselink.model.onetoone.Person;
 
 /**
  * java -jar $DERBY_HOME/lib/derbyrun.jar server start
- *
+ * <p>
  * connect 'jdbc:derby://localhost:1527/test';
  *
  * @author adamato
- *
  */
 public class OneToOneBidTest {
 
     @Test
     public void persist() throws Exception {
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("onetoone_bid");
-	final EntityManager em = emf.createEntityManager();
-	try {
-	    final EntityTransaction tx = em.getTransaction();
-	    tx.begin();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("onetoone_bid");
+        final EntityManager em = emf.createEntityManager();
 
-	    Person person = new Person();
-	    person.setName("John Smith");
+        final EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
-	    Fingerprint fingerprint = new Fingerprint();
-	    fingerprint.setType("arch");
-	    fingerprint.setPerson(person);
-	    person.setFingerprint(fingerprint);
+        Person person = new Person();
+        person.setName("John Smith");
 
-	    em.persist(person);
-	    em.persist(fingerprint);
+        Fingerprint fingerprint = new Fingerprint();
+        fingerprint.setType("arch");
+        fingerprint.setPerson(person);
+        person.setFingerprint(fingerprint);
 
-	    tx.commit();
+        em.persist(person);
+        em.persist(fingerprint);
 
-	    em.detach(person);
+        tx.commit();
 
-	    Person p = em.find(Person.class, person.getId());
-	    Assertions.assertNotNull(p);
-	    Assertions.assertFalse(p == person);
-	    Assertions.assertEquals(person.getId(), p.getId());
-	    Assertions.assertNotNull(p.getFingerprint());
-	    Assertions.assertEquals("John Smith", p.getName());
-	    Assertions.assertEquals("arch", p.getFingerprint().getType());
+        tx.begin();
+        em.detach(person);
 
-	} finally {
-	    em.close();
-	    emf.close();
-	}
+        Person p = em.find(Person.class, person.getId());
+        Assertions.assertNotNull(p);
+        Assertions.assertFalse(p == person);
+        Assertions.assertEquals(person.getId(), p.getId());
+        Assertions.assertNotNull(p.getFingerprint());
+        Assertions.assertEquals("John Smith", p.getName());
+        Assertions.assertEquals("arch", p.getFingerprint().getType());
+        em.remove(p.getFingerprint());
+        em.remove(p);
+        tx.commit();
+
+        em.close();
+        emf.close();
     }
 
 }

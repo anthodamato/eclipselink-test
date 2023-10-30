@@ -30,6 +30,7 @@ public class BookTest {
 		BookSample book = new BookSample();
 		book.setTitle("Marc");
 		em.persist(book);
+		em.flush();
 
 		System.out.println("BookTest.persist: book.getId()=" + book.getId());
 
@@ -38,11 +39,12 @@ public class BookTest {
 
 		tx.begin();
 		book.setTitle("The Guardian");
-		tx.commit();
 
 		BookSample b = em.find(BookSample.class, book.getId());
 		Assertions.assertNotNull(b);
+		em.remove(b);
 
+		tx.commit();
 		em.close();
 		emf.close();
 	}

@@ -64,8 +64,7 @@ public class EmbBookTest {
 		book.setBookFormat(bookFormat);
 
 		em.persist(book);
-
-		System.out.println("EmbBookTest.persist: book.getId()=" + book.getId());
+		em.flush();
 
 		Assertions.assertNotNull(book.getId());
 		tx.commit();

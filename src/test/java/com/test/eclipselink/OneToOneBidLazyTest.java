@@ -13,50 +13,52 @@ import com.test.eclipselink.model.onetoone.lazy.State;
 
 /**
  * java -jar $DERBY_HOME/lib/derbyrun.jar server start
- * 
+ * <p>
  * connect 'jdbc:derby://localhost:1527/test';
- * 
- * @author adamato
  *
+ * @author adamato
  */
 public class OneToOneBidLazyTest {
 //	private Logger LOG = LoggerFactory.getLogger(OneToOneBidLazyTest.class);
 
-	@Test
-	public void persist() throws Exception {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("onetoone_bid_lazy");
-		final EntityManager em = emf.createEntityManager();
-		try {
-			final EntityTransaction tx = em.getTransaction();
-			tx.begin();
+    @Test
+    public void persist() throws Exception {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("onetoone_bid_lazy");
+        final EntityManager em = emf.createEntityManager();
 
-			State state = new State();
-			state.setName("England");
+        final EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
-			Capital capital = new Capital();
-			capital.setName("London");
+        State state = new State();
+        state.setName("England");
 
-			state.setCapital(capital);
+        Capital capital = new Capital();
+        capital.setName("London");
 
-			em.persist(capital);
-			em.persist(state);
+        state.setCapital(capital);
 
-			tx.commit();
+        em.persist(capital);
+        em.persist(state);
 
-			em.detach(capital);
-			em.detach(state);
-			State s = em.find(State.class, state.getId());
+        tx.commit();
 
-			Assertions.assertFalse(s == state);
-			Assertions.assertEquals("England", state.getName());
+        tx.begin();
+        em.detach(capital);
+        em.detach(state);
+        State s = em.find(State.class, state.getId());
+
+        Assertions.assertFalse(s == state);
+        Assertions.assertEquals("England", state.getName());
 //			LOG.info("Loading s.getCapital()");
-			Capital c = s.getCapital();
-			Assertions.assertNotNull(c);
-			Assertions.assertEquals("London", c.getName());
-		} finally {
-			em.close();
-			emf.close();
-		}
-	}
+        Capital c = s.getCapital();
+        Assertions.assertNotNull(c);
+        Assertions.assertEquals("London", c.getName());
+        em.remove(c);
+        em.remove(s);
+        tx.commit();
+
+        em.close();
+        emf.close();
+    }
 
 }

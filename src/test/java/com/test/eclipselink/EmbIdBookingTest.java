@@ -1,71 +1,66 @@
 package com.test.eclipselink;
 
-import java.sql.Date;
-import java.time.LocalDate;
+import com.test.eclipselink.model.HotelBooking;
+import com.test.eclipselink.model.RoomBookingId;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import com.test.eclipselink.model.HotelBooking;
-import com.test.eclipselink.model.RoomBookingId;
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * java -jar $DERBY_HOME/lib/derbyrun.jar server start
- * 
+ * <p>
  * connect 'jdbc:derby://localhost:1527/test';
- * 
- * @author adamato
  *
+ * @author adamato
  */
 public class EmbIdBookingTest {
 
-	@Test
-	public void persist() throws Exception {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("emb_booking");
-		final EntityManager em = emf.createEntityManager();
-		try {
-			final EntityTransaction tx = em.getTransaction();
-			tx.begin();
+    @Test
+    public void persist() throws Exception {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("emb_booking");
+        final EntityManager em = emf.createEntityManager();
 
-			RoomBookingId roomBookingId = new RoomBookingId();
-			Date date = Date.valueOf(LocalDate.of(2020, 10, 1));
-			roomBookingId.setDateof(date);
-			roomBookingId.setRoomNumber(23);
+        final EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
-			HotelBooking hotelBooking = new HotelBooking();
-			hotelBooking.setRoomBookingId(roomBookingId);
-			hotelBooking.setCustomerId(1);
-			hotelBooking.setPrice(45.5f);
+        RoomBookingId roomBookingId = new RoomBookingId();
+        Date date = Date.valueOf(LocalDate.of(2020, 10, 1));
+        roomBookingId.setDateof(date);
+        roomBookingId.setRoomNumber(23);
 
-			em.persist(hotelBooking);
+        HotelBooking hotelBooking = new HotelBooking();
+        hotelBooking.setRoomBookingId(roomBookingId);
+        hotelBooking.setCustomerId(1);
+        hotelBooking.setPrice(45.5f);
 
-			Assertions.assertNotNull(hotelBooking.getRoomBookingId());
-			tx.commit();
+        em.persist(hotelBooking);
 
-			HotelBooking b = em.find(HotelBooking.class, hotelBooking.getRoomBookingId());
-			Assertions.assertTrue(b == hotelBooking);
-			Assertions.assertNotNull(b);
-			RoomBookingId bookingId = b.getRoomBookingId();
-			Assertions.assertNotNull(bookingId);
-			Assertions.assertEquals(date, bookingId.getDateof());
+        Assertions.assertNotNull(hotelBooking.getRoomBookingId());
+        tx.commit();
 
-			em.detach(hotelBooking);
-			b = em.find(HotelBooking.class, hotelBooking.getRoomBookingId());
-			Assertions.assertFalse(b == hotelBooking);
-			Assertions.assertNotNull(b);
+        HotelBooking b = em.find(HotelBooking.class, hotelBooking.getRoomBookingId());
+        Assertions.assertTrue(b == hotelBooking);
+        Assertions.assertNotNull(b);
+        RoomBookingId bookingId = b.getRoomBookingId();
+        Assertions.assertNotNull(bookingId);
+        Assertions.assertEquals(date, bookingId.getDateof());
 
-			HotelBooking b2 = em.find(HotelBooking.class, b.getRoomBookingId());
-			Assertions.assertTrue(b2 == b);
+        em.detach(hotelBooking);
+        b = em.find(HotelBooking.class, hotelBooking.getRoomBookingId());
+        Assertions.assertFalse(b == hotelBooking);
+        Assertions.assertNotNull(b);
 
-		} finally {
-			em.close();
-			emf.close();
-		}
-	}
+        HotelBooking b2 = em.find(HotelBooking.class, b.getRoomBookingId());
+        Assertions.assertTrue(b2 == b);
+
+        em.close();
+        emf.close();
+    }
 
 }

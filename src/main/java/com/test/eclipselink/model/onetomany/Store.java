@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,6 +17,7 @@ public class Store {
 	private String name;
 
 	@OneToMany
+	@JoinTable(name = "store_items")
 	private Collection<Item> items;
 
 	public Long getId() {

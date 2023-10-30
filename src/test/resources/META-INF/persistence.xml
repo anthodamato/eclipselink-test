@@ -8,69 +8,52 @@
         <description>Citizen registry</description>
         <class>com.test.eclipselink.model.Citizen</class>
         <class>com.test.eclipselink.model.Address</class>
-
-        <!-- <properties> -->
-        <!-- <property name="hibernate.dialect" -->
-        <!-- value="org.hibernate.dialect.DerbyTenSevenDialect" /> -->
-        <!-- <property name="javax.persistence.jdbc.user" value="test" /> -->
-        <!-- <property name="javax.persistence.jdbc.password" -->
-        <!-- value="test" /> -->
-        <!-- <property name="javax.persistence.jdbc.url" -->
-        <!-- value="jdbc:derby://localhost:1527/test" /> -->
-        <!-- <property name="javax.persistence.jdbc.driver" -->
-        <!-- value="org.apache.derby.jdbc.ClientDriver" /> -->
-        <!-- </properties> -->
-
         <properties>
-            <!--            <property name="javax.persistence.jdbc.url"
-            value="jdbc:derby:memory:citizens;create=true" />
-  <property name="javax.persistence.jdbc.driver"
-            value="org.apache.derby.jdbc.EmbeddedDriver" />-->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/test" />
+                      value="jdbc:derby:memory:citizens;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="password" />
-            <!--            <property
-            name="javax.persistence.schema-generation.database.action"
-            value="create" />
-        <property
-            name="javax.persistence.schema-generation.create-source"
-            value="script" />
-        <property
-            name="javax.persistence.schema-generation.create-script-source"
-            value="META-INF/create_citizens_db.sql" />-->
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property
-                name="javax.persistence.schema-generation.database.action" 
-                value="create" /> 
-            <property 
-                name="javax.persistence.schema-generation.create-source" 
-                value="metadata" /> 
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <property
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
+            <property
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_citizens_db.sql"/>
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="metadata"/>
+            -->
 
-            <property name="eclipselink.logging.level" value="FINE" />
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
     <persistence-unit name="generic_list">
         <description>Citizen Entity Only</description>
-        <class>com.test.hibernate.model.GenericList</class>
+        <class>com.test.eclipselink.model.GenericList</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:genericlist;create=true" />
+                      value="jdbc:derby:memory:genericlist;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="drop-and-create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_genericlist_db.sql" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_genericlist_db.sql"/>
             <!-- <property -->
             <!-- name="javax.persistence.schema-generation.drop-source" -->
             <!-- value="script" /> -->
@@ -87,21 +70,25 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
-            <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
-            <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
-            <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_books_db.sql" />
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="script"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-script-source"
+                                value="META-INF/create_books_db.sql"/>
+            -->
         </properties>
     </persistence-unit>
 
@@ -112,21 +99,21 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_emb_books_db.sql" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_emb_books_db.sql"/>
         </properties>
     </persistence-unit>
 
@@ -135,22 +122,29 @@
         <class>com.test.eclipselink.model.HotelBooking</class>
 
         <properties>
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
+
+<!--
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_emb_booking_db.sql" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <property
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
+            <property
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_emb_booking_db.sql"/>
+-->
         </properties>
     </persistence-unit>
 
@@ -160,12 +154,10 @@
         <class>com.test.eclipselink.model.onetoone.Region</class>
 
         <properties>
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <!--            <property
             name="javax.persistence.schema-generation.database.action"
@@ -177,12 +169,12 @@
             name="javax.persistence.schema-generation.create-script-source"
             value="META-INF/create_onetoone_uni_db.sql" />-->
             <property
-                name="javax.persistence.schema-generation.database.action" 
-                value="create" /> 
-            <property 
-                name="javax.persistence.schema-generation.create-source" 
-                value="metadata" /> 
-            <property name="eclipselink.logging.level" value="FINE" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <property
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
 
         </properties>
     </persistence-unit>
@@ -194,21 +186,31 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
-            <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_onetoone_bid_db.sql" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="script"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-script-source"
+                                value="META-INF/create_onetoone_bid_db.sql"/>
+            -->
         </properties>
     </persistence-unit>
 
@@ -217,58 +219,63 @@
         <class>com.test.eclipselink.model.onetoone.lazy.State</class>
         <class>com.test.eclipselink.model.onetoone.lazy.Capital</class>
         <properties>
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
-            <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_onetoone_bid_lazy_db.sql" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="script"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-script-source"
+                                value="META-INF/create_onetoone_bid_lazy_db.sql"/>
+            -->
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="manytoone_bid">
+    <persistence-unit name="manytoone_bid" transaction-type="RESOURCE_LOCAL">
         <description>Bidirectional Many to One</description>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.test.eclipselink.model.manytoone.Employee</class>
         <class>com.test.eclipselink.model.manytoone.Department</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <!--            <property name="javax.persistence.jdbc.url"
-            value="jdbc:derby:memory:books;create=true" />
-  <property name="javax.persistence.jdbc.driver"
-            value="org.apache.derby.jdbc.EmbeddedDriver" />-->
-            
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/test" />
+                      value="jdbc:derby:memory:manytoone_bid;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="password" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="metadata"/>
+            -->
 
             <property
-                name="javax.persistence.schema-generation.database.action" 
-                value="create" /> 
-            <property 
-                name="javax.persistence.schema-generation.create-source" 
-                value="metadata" /> 
-
-            <!--            <property
-            name="javax.persistence.schema-generation.database.action"
-            value="create" />
-        <property
-            name="javax.persistence.schema-generation.create-source"
-            value="script" />
-        <property
-            name="javax.persistence.schema-generation.create-script-source"
-            value="META-INF/create_manytoone_bid_db.sql" />-->
-            <property name="eclipselink.logging.level" value="FINE" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <property
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
+            <property
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_manytoone_bid_db.sql"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
@@ -277,21 +284,23 @@
         <class>com.test.eclipselink.model.onetomany.Store</class>
         <class>com.test.eclipselink.model.onetomany.Item</class>
         <properties>
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
-            <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_onetomany_uni_db.sql" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
+            <!--             <property -->
+            <!--                 name="javax.persistence.schema-generation.create-source" -->
+            <!--                 value="script" /> -->
+            <!--             <property -->
+            <!--                 name="javax.persistence.schema-generation.create-script-source" -->
+            <!--                 value="META-INF/create_onetomany_uni_db.sql" /> -->
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
@@ -299,24 +308,23 @@
         <description>One To Many Books</description>
         <class>com.test.eclipselink.model.HotelBookingDetail</class>
         <class>com.test.eclipselink.model.HotelCustomer</class>
-
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_otm_emb_booking_db.sql" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_otm_emb_booking_db.sql"/>
         </properties>
     </persistence-unit>
 
@@ -327,21 +335,21 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:books;create=true" />
+                      value="jdbc:derby:memory:books;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_mapped_superclass_db.sql" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_mapped_superclass_db.sql"/>
         </properties>
     </persistence-unit>
 
@@ -351,21 +359,29 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:stoves;create=true" />
+                      value="jdbc:derby:memory:stoves;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <property
+                    name="javax.persistence.schema-generation.create-source"
+                    value="metadata"/>
 
-            <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
-            <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
-            <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_stove_db.sql" />
+            <!--
+                        <property
+                                name="javax.persistence.schema-generation.database.action"
+                                value="create"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-source"
+                                value="script"/>
+                        <property
+                                name="javax.persistence.schema-generation.create-script-source"
+                                value="META-INF/create_stove_db.sql"/>
+            -->
         </properties>
     </persistence-unit>
 
@@ -375,22 +391,22 @@
 
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:holidays;create=true" />
+                      value="jdbc:derby:memory:holidays;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_holiday_db.sql" />
-            <property name="eclipselink.logging.level" value="FINE" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_holiday_db.sql"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
@@ -399,19 +415,19 @@
         <class>com.test.eclipselink.model.StoreItem</class>
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:store_items;create=true" />
+                      value="jdbc:derby:memory:store_items;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property
-                name="javax.persistence.schema-generation.database.action"
-                value="create" />
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
             <property
-                name="javax.persistence.schema-generation.create-source"
-                value="script" />
+                    name="javax.persistence.schema-generation.create-source"
+                    value="script"/>
             <property
-                name="javax.persistence.schema-generation.create-script-source"
-                value="META-INF/create_store_item_db.sql" />
-            <property name="eclipselink.logging.level" value="FINE" />
+                    name="javax.persistence.schema-generation.create-script-source"
+                    value="META-INF/create_store_item_db.sql"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
@@ -421,11 +437,11 @@
         <class>com.test.eclipselink.model.ProgramManager</class>
         <properties>
             <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.DerbyTenSevenDialect" />
+                      value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:orders;create=true" />
+                      value="jdbc:derby:memory:orders;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
         </properties>
     </persistence-unit>
@@ -435,11 +451,53 @@
         <class>com.test.eclipselink.model.ItemSaleStats</class>
         <properties>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:memory:item_sale_stats;create=true" />
+                      value="jdbc:derby:memory:item_sale_stats;create=true"/>
             <property name="javax.persistence.jdbc.driver"
-                      value="org.apache.derby.jdbc.EmbeddedDriver" />
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
-            <property name="eclipselink.logging.level" value="FINE" />
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="numeric_set">
+        <description>Numeric Set</description>
+        <class>com.test.eclipselink.model.NumericSet</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:numeric_set;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="search_data">
+        <description>Search Data</description>
+        <class>com.test.eclipselink.model.SearchData</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:search_data;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="multiple_joins">
+        <description>Multiple Joins</description>
+        <class>com.test.eclipselink.model.Song</class>
+        <class>com.test.eclipselink.model.Movie</class>
+        <class>com.test.eclipselink.model.Artist</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:multiple_joins;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 
