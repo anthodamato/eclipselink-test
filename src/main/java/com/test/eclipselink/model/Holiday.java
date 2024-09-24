@@ -8,6 +8,12 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "checkInPeriod", query = "select o from Holiday o where o.checkIn between :dateStart and :dateEnd")
 })
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "nativeCheckInPeriod",
+                query = "select h.id, h.travellers, h.check_in, h.nights, h.referenceName from Holiday h where h.check_in between ?dateStart and ?dateEnd",
+                resultClass = Holiday.class)
+})
 public class Holiday {
     @SequenceGenerator(name = "SEQ_HOLIDAY", sequenceName = "SEQ_GEN_SEQUENCE", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_HOLIDAY")
@@ -15,6 +21,7 @@ public class Holiday {
     private Long id;
 
     private Integer travellers;
+    @Column(name = "check_in")
     private LocalDate checkIn;
     private Integer nights;
     private String referenceName;

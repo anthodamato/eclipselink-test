@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- *
  * @author adamato
  */
 @Entity
@@ -32,27 +31,27 @@ public class ProgramManager {
     Collection<JobEmployee> manages;
 
     public int getId() {
-	return id;
+        return id;
     }
 
     public void setId(int id) {
-	this.id = id;
+        this.id = id;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     public String getName() {
-	return name;
+        return name;
     }
 
     public Collection<JobEmployee> getManages() {
-	return manages;
+        return manages;
     }
 
     public void setManages(Collection<JobEmployee> manages) {
-	this.manages = manages;
+        this.manages = manages;
     }
 
 }
