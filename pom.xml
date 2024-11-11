@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <lombok.version>1.18.34</lombok.version>
     </properties>
 
     <profiles>
@@ -28,18 +29,18 @@
                     <artifactId>javax.persistence-api</artifactId>
                     <version>2.2</version>
                 </dependency>
-                                <dependency>
-                                    <groupId>org.eclipse.persistence</groupId>
-                                    <artifactId>eclipselink</artifactId>
-                                    <version>2.7.13</version>
-                                </dependency>
-<!--
                 <dependency>
                     <groupId>org.eclipse.persistence</groupId>
                     <artifactId>eclipselink</artifactId>
-                    <version>4.0.2</version>
+                    <version>2.7.13</version>
                 </dependency>
--->
+                <!--
+                                <dependency>
+                                    <groupId>org.eclipse.persistence</groupId>
+                                    <artifactId>eclipselink</artifactId>
+                                    <version>4.0.2</version>
+                                </dependency>
+                -->
                 <dependency>
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
@@ -86,6 +87,12 @@
                     <artifactId>derby</artifactId>
                     <version>10.15.2.0</version>
                     <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                    <scope>provided</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -144,6 +151,12 @@
                     <version>8.0.25</version>
                     <scope>test</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
@@ -200,6 +213,12 @@
                     <artifactId>mariadb-java-client</artifactId>
                     <version>2.7.3</version>
                     <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                    <scope>provided</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -258,6 +277,12 @@
                     <version>42.2.20</version>
                     <scope>test</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
@@ -314,6 +339,12 @@
                     <artifactId>ojdbc8</artifactId>
                     <version>21.1.0.0</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
         </profile>
     </profiles>
@@ -331,6 +362,13 @@
                 <version>3.8.1</version>
                 <configuration>
                     <release>11</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
