@@ -523,4 +523,18 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="bid_lombok_onetomany">
+        <description>Bidirectional Lombok One to Many</description>
+        <class>com.test.eclipselink.model.Continent</class>
+        <class>com.test.eclipselink.model.Country</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:bid_lombok_onetomany;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>
