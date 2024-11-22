@@ -1,9 +1,10 @@
 package com.test.eclipselink.model;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class PatientPk {
+public class PatientPk implements Serializable {
     private long id;
     private long doctor;
 

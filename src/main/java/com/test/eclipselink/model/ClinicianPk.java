@@ -1,9 +1,10 @@
 package com.test.eclipselink.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class ClinicianPk {
+public class ClinicianPk implements Serializable {
     private String name;
     private LocalDate dob;
 
