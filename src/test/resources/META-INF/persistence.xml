@@ -537,4 +537,19 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="idclass">
+        <description>Bidirectional Lombok One to Many</description>
+        <class>com.test.eclipselink.model.Clinician</class>
+        <class>com.test.eclipselink.model.Doctor</class>
+        <class>com.test.eclipselink.model.Patient</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:idclass;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>

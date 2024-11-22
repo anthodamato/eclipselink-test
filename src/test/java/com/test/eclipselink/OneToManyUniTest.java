@@ -647,7 +647,6 @@ public class OneToManyUniTest {
         Assertions.assertFalse(s == store);
 
         Collection<Item> items = s.getItems();
-        items.forEach(it -> System.out.println(it.getModel()));
         Assertions.assertEquals(1, items.size());
 
         em.detach(store);

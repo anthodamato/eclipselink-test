@@ -54,7 +54,6 @@ public class FindTest {
         Citizen citizen = new Citizen();
         citizen.setName("Anthony");
         em.persist(citizen);
-        System.out.println("find: after persist");
 
         Assertions.assertNotNull(citizen.getId());
 
@@ -234,9 +233,7 @@ public class FindTest {
         Assertions.assertFalse(predicate.isCompoundSelection());
 
         cq.where(predicate);
-        System.out.println("equalCriteria: predicate=" + predicate);
         List<Expression<Boolean>> expressions = predicate.getExpressions();
-        System.out.println("equalCriteria: expressions=" + expressions);
         CriteriaQuery<Citizen> cqCitizen = cq.select(root);
 
         TypedQuery<Citizen> typedQuery = em.createQuery(cqCitizen);
@@ -537,7 +534,6 @@ public class FindTest {
 //	    Assertions.assertEquals(Boolean.class, predicate.getJavaType());
 //	    Assertions.assertFalse(predicate.isCompoundSelection());
 //	    Predicate isNullPredicate = predicate.isNull();
-//	    System.out.println("equalCriteria: isNullPredicate=" + isNullPredicate);
 //
 //	    cq.where(isNullPredicate);
 //	    List<Expression<Boolean>> expressions = predicate.getExpressions();
