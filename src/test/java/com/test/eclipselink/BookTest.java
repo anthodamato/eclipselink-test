@@ -32,8 +32,6 @@ public class BookTest {
 		em.persist(book);
 		em.flush();
 
-		System.out.println("BookTest.persist: book.getId()=" + book.getId());
-
 		Assertions.assertNotNull(book.getId());
 		tx.commit();
 

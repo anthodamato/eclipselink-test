@@ -537,4 +537,33 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="idclass">
+        <description>IdClass test</description>
+        <class>com.test.eclipselink.model.Clinician</class>
+        <class>com.test.eclipselink.model.Doctor</class>
+        <class>com.test.eclipselink.model.Patient</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:idclass;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guestidclass">
+        <description>IdClass and Embedded Id foreign key test</description>
+        <class>com.test.eclipselink.model.Guest</class>
+        <class>com.test.eclipselink.model.GuestBooking</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:derby:memory:guestidclass;create=true"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>

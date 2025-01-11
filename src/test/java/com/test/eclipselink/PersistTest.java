@@ -88,7 +88,6 @@ public class PersistTest {
         Assertions.assertEquals(2, entityTypes.size());
 
         for (EntityType<?> entityType : entityTypes) {
-            System.out.println("metamodel: entityType.getName()=" + entityType.getName());
             if (entityType.getName().equals("Address")) {
                 checkAddress(entityType);
             } else if (entityType.getName().equals("Citizen")) {
@@ -129,7 +128,6 @@ public class PersistTest {
         Assertions.assertEquals(Citizen.class, entityType.getBindableJavaType());
 
         List<String> names = MetamodelUtils.getAttributeNames(entityType);
-        System.out.println("checkCitizen: names=" + names);
 
         Assertions.assertTrue(CollectionUtils.containsAll(Arrays.asList("id", "name", "lastName", "version"), names));
 
